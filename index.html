@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics Labs - Data Mining</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+   <link rel="stylesheet" href="./style.css">
+</head>
+<body>    <div class="container">
+        <div class="header">
+            <h1>📊 Statistics Labs Solutions</h1>
+            <p>Data Mining Course - ITI 9 Months Program</p>
+            <div class="developer-signature">
+                <i class="fas fa-user-graduate me-2"></i>
+                <span class="signature-text"><strong>Mohamed Sameh Ahmed Tayee</strong></span>
+            </div>
+        </div>
+
+        <div class="lab-selector">
+            <div class="lab-tab" onclick="showLab(1)">Lab 1 - Probability & Basic Statistics</div>
+            <div class="lab-tab active" onclick="showLab(2)">Lab 2 - Advanced Statistics & Normal Distribution</div>
+        </div>
+
+        <!-- Lab 1 Content -->
+        <div id="lab1" class="lab-content">
+            <h2>Lab 1: Probability Lab Solutions</h2>
+            <p class="lead mb-4">Data Mining Course - Lecture 1 Applications</p>
+
+            <!-- Question 1 -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#question1">
+                            <i class="fas fa-palette me-2 text-primary"></i>
+                            Question 1: Color Preferences (Set Theory & Venn Diagrams)
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="question1" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Problem:</strong> Among a group of people, 40% liked red, 30% liked blue and 30% liked green. 7% liked both red and green, 5% liked both red and blue, 10% liked both green and blue. If 86% of them liked at least one colour, what percentage of people liked all three?
+                        </div>
+                        
+                        <button class="btn btn-success mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#solution1">
+                            <i class="fas fa-eye me-2"></i>Show Solution
+                        </button>
+                        
+                        <div id="solution1" class="collapse">
+                            <div class="formula-box">
+                                <strong>Formula Used:</strong> |A ∪ B ∪ C| = |A| + |B| + |C| - |A ∩ B| - |A ∩ C| - |B ∩ C| + |A ∩ B ∩ C|
+                            </div>
+                            
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item">
+                                    <span class="step-number">1</span>
+                                    <strong>Define the sets:</strong>
+                                    <ul class="mt-2">
+                                        <li>R = people who like red = 40%</li>
+                                        <li>B = people who like blue = 30%</li>
+                                        <li>G = people who like green = 30%</li>
+                                        <li>R ∩ G = 7%, R ∩ B = 5%, B ∩ G = 10%</li>
+                                        <li>R ∪ B ∪ G = 86%</li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">2</span>
+                                    <strong>Apply the inclusion-exclusion principle:</strong>
+                                    <div class="mt-2">
+                                        86% = 40% + 30% + 30% - 5% - 7% - 10% + |R ∩ B ∩ G|
+                                    </div>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">3</span>
+                                    <strong>Solve for the intersection:</strong>
+                                    <div class="mt-2">
+                                        86% = 100% - 22% + |R ∩ B ∩ G|<br>
+                                        86% = 78% + |R ∩ B ∩ G|<br>
+                                        |R ∩ B ∩ G| = 86% - 78% = 8%
+                                    </div>
+                                </li>
+                            </ol>
+                            
+                            <div class="answer-highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Answer: 8% of people liked all three colors</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#question2">
+                            <i class="fas fa-heart me-2 text-danger"></i>
+                            Question 2: Card Probability (Conditional Probability)
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="question2" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Problem:</strong> Suppose we draw 2 cards out of a deck of 52. What is the probability that both cards are spades?
+                        </div>
+                        
+                        <button class="btn btn-success mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#solution2">
+                            <i class="fas fa-eye me-2"></i>Show Solution
+                        </button>
+                        
+                        <div id="solution2" class="collapse">
+                            <div class="formula-box">
+                                <strong>Formula Used:</strong> P(A ∩ B) = P(A) × P(B|A) for dependent events
+                            </div>
+                            
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item">
+                                    <span class="step-number">1</span>
+                                    <strong>Identify the events:</strong>
+                                    <ul class="mt-2">
+                                        <li>A = First card is a spade</li>
+                                        <li>B = Second card is a spade (given first is spade)</li>
+                                        <li>Total cards = 52, Spades = 13</li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">2</span>
+                                    <strong>Calculate P(A):</strong>
+                                    <div class="mt-2">P(A) = 13/52 = 1/4</div>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">3</span>
+                                    <strong>Calculate P(B|A):</strong>
+                                    <div class="mt-2">
+                                        After drawing one spade, remaining cards = 51<br>
+                                        Remaining spades = 12<br>
+                                        P(B|A) = 12/51 = 4/17
+                                    </div>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">4</span>
+                                    <strong>Calculate final probability:</strong>
+                                    <div class="mt-2">
+                                        P(both spades) = P(A) × P(B|A)<br>
+                                        = (1/4) × (4/17) = 4/68 = 1/17 ≈ 0.0588
+                                    </div>
+                                </li>
+                            </ol>
+                            
+                            <div class="answer-highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Answer: 1/17 ≈ 5.88%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#question3">
+                            <i class="fas fa-trophy me-2 text-warning"></i>
+                            Question 3: Hockey Tournament (Conditional Probability)
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="question3" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Problem:</strong> The Cornell hockey team is playing in a four team tournament. In the first round they have an easy opponent that they will beat 80% of the time but if they win that game they will play against a tougher team where their probability of success is 0.4. What is the probability that they will win the tournament?
+                        </div>
+                        
+                        <button class="btn btn-success mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#solution3">
+                            <i class="fas fa-eye me-2"></i>Show Solution
+                        </button>
+                        
+                        <div id="solution3" class="collapse">
+                            <div class="formula-box">
+                                <strong>Formula Used:</strong> P(A ∩ B) = P(A) × P(B|A)
+                            </div>
+                            
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item">
+                                    <span class="step-number">1</span>
+                                    <strong>Define the events:</strong>
+                                    <ul class="mt-2">
+                                        <li>A = Win first round (easy opponent)</li>
+                                        <li>B = Win second round (tough opponent) given A occurred</li>
+                                        <li>P(A) = 0.8</li>
+                                        <li>P(B|A) = 0.4</li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">2</span>
+                                    <strong>Calculate tournament win probability:</strong>
+                                    <div class="mt-2">
+                                        P(Win Tournament) = P(A ∩ B) = P(A) × P(B|A)<br>
+                                        = 0.8 × 0.4 = 0.32
+                                    </div>
+                                </li>
+                            </ol>
+                            
+                            <div class="tree-diagram mt-3">
+                                <strong>Tree Diagram:</strong><br>
+                                Start<br>
+                                ├─ Win Round 1 (0.8)<br>
+                                │  ├─ Win Round 2 (0.4) → <strong>Win Tournament (0.32)</strong><br>
+                                │  └─ Lose Round 2 (0.6) → Lose Tournament<br>
+                                └─ Lose Round 1 (0.2) → Lose Tournament
+                            </div>
+                            
+                            <div class="answer-highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Answer: 0.32 or 32%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#question4">
+                            <i class="fas fa-graduation-cap me-2 text-info"></i>
+                            Question 4: Education Progress (Independent Events)
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="question4" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Problem:</strong> In the town of Mythica 90% of students graduate high school, 60% of high school graduates complete college, and 20% of college graduates get graduate or professional degrees. What fraction of students get advanced degrees?
+                        </div>
+                        
+                        <button class="btn btn-success mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#solution4">
+                            <i class="fas fa-eye me-2"></i>Show Solution
+                        </button>
+                        
+                        <div id="solution4" class="collapse">
+                            <div class="formula-box">
+                                <strong>Formula Used:</strong> P(A ∩ B ∩ C) = P(A) × P(B|A) × P(C|A∩B)
+                            </div>
+                            
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item">
+                                    <span class="step-number">1</span>
+                                    <strong>Define the events:</strong>
+                                    <ul class="mt-2">
+                                        <li>H = Graduate high school: P(H) = 0.9</li>
+                                        <li>C = Complete college given H: P(C|H) = 0.6</li>
+                                        <li>A = Get advanced degree given C: P(A|C) = 0.2</li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">2</span>
+                                    <strong>Calculate the probability:</strong>
+                                    <div class="mt-2">
+                                        P(Advanced Degree) = P(H) × P(C|H) × P(A|C)<br>
+                                        = 0.9 × 0.6 × 0.2 = 0.108
+                                    </div>
+                                </li>
+                            </ol>
+                            
+                            <div class="tree-diagram mt-3">
+                                <strong>Education Path:</strong><br>
+                                Students (100%)<br>
+                                ├─ Graduate HS (90%)<br>
+                                │  ├─ Complete College (54%) = 90% × 60%<br>
+                                │  │  ├─ Advanced Degree (<strong>10.8%</strong>) = 54% × 20%<br>
+                                │  │  └─ No Advanced Degree (43.2%)<br>
+                                │  └─ No College (36%)<br>
+                                └─ No HS Graduation (10%)
+                            </div>
+                            
+                            <div class="answer-highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Answer: 0.108 or 10.8%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#question5">
+                            <i class="fas fa-circle me-2 text-danger"></i>
+                            Question 5: Urn Problem (Total Probability)
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="question5" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Problem:</strong> An urn contains 5 red and 10 black balls. We draw 2 balls from the urn without replacement. What is the probability that the second ball drawn is red?
+                        </div>
+                        
+                        <button class="btn btn-success mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#solution5">
+                            <i class="fas fa-eye me-2"></i>Show Solution
+                        </button>
+                        
+                        <div id="solution5" class="collapse">
+                            <div class="formula-box">
+                                <strong>Formula Used:</strong> P(B) = P(B|A₁)P(A₁) + P(B|A₂)P(A₂)
+                            </div>
+                            
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item">
+                                    <span class="step-number">1</span>
+                                    <strong>Define the scenarios:</strong>
+                                    <ul class="mt-2">
+                                        <li>Total balls = 15 (5 red + 10 black)</li>
+                                        <li>A₁ = First ball is red</li>
+                                        <li>A₂ = First ball is black</li>
+                                        <li>B = Second ball is red</li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">2</span>
+                                    <strong>Calculate probabilities for first draw:</strong>
+                                    <div class="mt-2">
+                                        P(A₁) = 5/15 = 1/3<br>
+                                        P(A₂) = 10/15 = 2/3
+                                    </div>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">3</span>
+                                    <strong>Calculate conditional probabilities:</strong>
+                                    <div class="mt-2">
+                                        If first ball is red: P(B|A₁) = 4/14 = 2/7<br>
+                                        If first ball is black: P(B|A₂) = 5/14
+                                    </div>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">4</span>
+                                    <strong>Apply total probability rule:</strong>
+                                    <div class="mt-2">
+                                        P(B) = P(B|A₁)P(A₁) + P(B|A₂)P(A₂)<br>
+                                        = (2/7)(1/3) + (5/14)(2/3)<br>
+                                        = 2/21 + 10/42 = 2/21 + 5/21 = 7/21 = 1/3
+                                    </div>
+                                </li>
+                            </ol>
+                            
+                            <div class="answer-highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Answer: 1/3 ≈ 33.33%</strong>
+                            </div>
+                            
+                            <div class="alert alert-warning mt-3">
+                                <i class="fas fa-lightbulb me-2"></i>
+                                <strong>Insight:</strong> Notice that the probability of drawing a red ball second is the same as the initial proportion of red balls (5/15 = 1/3). This is a general result for sampling without replacement!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#question6">
+                            <i class="fas fa-file-alt me-2 text-success"></i>
+                            Question 6: Exam Performance (Conditional Probability)
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="question6" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Problem:</strong> 70% of students in a certain course pass the midterm exam. The final exam is passed by 80% of those who passed the midterm, but only by 40% of those who fail the midterm. What fraction of students pass the final?
+                        </div>
+                        
+                        <button class="btn btn-success mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#solution6">
+                            <i class="fas fa-eye me-2"></i>Show Solution
+                        </button>
+                        
+                        <div id="solution6" class="collapse">
+                            <div class="formula-box">
+                                <strong>Formula Used:</strong> P(F) = P(F|M)P(M) + P(F|M')P(M')
+                            </div>
+                            
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item">
+                                    <span class="step-number">1</span>
+                                    <strong>Define the events:</strong>
+                                    <ul class="mt-2">
+                                        <li>M = Pass midterm: P(M) = 0.7</li>
+                                        <li>M' = Fail midterm: P(M') = 0.3</li>
+                                        <li>F = Pass final exam</li>
+                                        <li>P(F|M) = 0.8</li>
+                                        <li>P(F|M') = 0.4</li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">2</span>
+                                    <strong>Apply total probability rule:</strong>
+                                    <div class="mt-2">
+                                        P(F) = P(F|M)P(M) + P(F|M')P(M')<br>
+                                        = (0.8)(0.7) + (0.4)(0.3)<br>
+                                        = 0.56 + 0.12 = 0.68
+                                    </div>
+                                </li>
+                            </ol>
+                            
+                            <div class="tree-diagram mt-3">
+                                <strong>Exam Performance Tree:</strong><br>
+                                Students (100%)<br>
+                                ├─ Pass Midterm (70%)<br>
+                                │  ├─ Pass Final (56%) = 70% × 80%<br>
+                                │  └─ Fail Final (14%)<br>
+                                └─ Fail Midterm (30%)<br>
+                                   ├─ Pass Final (12%) = 30% × 40%<br>
+                                   └─ Fail Final (18%)<br><br>
+                                <strong>Total Pass Final: 56% + 12% = 68%</strong>
+                            </div>
+                            
+                            <div class="answer-highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Answer: 0.68 or 68%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lab 2 Content -->
+        <div id="lab2" class="lab-content active">
+            <h2>Lab 2: Statistics & Normal Distribution</h2>
+
+            <!-- Problem 1: Mean of observations -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#problem1">
+                            <i class="fas fa-calculator me-2 text-primary"></i>
+                            Problem 1: Finding x from Mean
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="problem1" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Question:</strong> If the mean of five observations x, x + 4, x + 6, x + 8 and x + 12 is 16, find the value of x.
+                        </div>
+                        
+                        <div class="formula-box mb-3">
+                            <strong>Formula:</strong> Mean = (Sum of all observations) / (Number of observations)
+                        </div>
+                        
+                        <button class="btn btn-success mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#solution-problem1">
+                            <i class="fas fa-eye me-2"></i>Show Solution
+                        </button>
+                        
+                        <div id="solution-problem1" class="collapse">
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item">
+                                    <span class="step-number">1</span>
+                                    <strong>Calculate sum of observations:</strong>
+                                    <div class="mt-2">
+                                        Sum = x + (x+4) + (x+6) + (x+8) + (x+12)<br>
+                                        Sum = 5x + 30
+                                    </div>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">2</span>
+                                    <strong>Apply mean formula:</strong>
+                                    <div class="mt-2">
+                                        Mean = Sum / Number of observations<br>
+                                        16 = (5x + 30) / 5<br>
+                                        16 × 5 = 5x + 30<br>
+                                        80 = 5x + 30<br>
+                                        5x = 50<br>
+                                        x = 10
+                                    </div>
+                                </li>
+                            </ol>
+                            
+                            <div class="answer-highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Answer: x = 10</strong>
+                            </div>
+                            
+                            <div class="alert alert-success mt-3">
+                                <strong>Verification:</strong> Observations: 10, 14, 16, 18, 22<br>
+                                Mean = (10 + 14 + 16 + 18 + 22) / 5 = 80 / 5 = 16 ✓
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem 2: Corrected Mean -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#problem2">
+                            <i class="fas fa-edit me-2 text-danger"></i>
+                            Problem 2: Corrected Mean
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="problem2" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Question:</strong> The mean of 40 numbers was found to be 38. Later on, it was detected that a number 56 was misread as 36. Find the correct mean of given numbers.
+                        </div>
+                        
+                        <button class="btn btn-success mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#solution-problem2">
+                            <i class="fas fa-eye me-2"></i>Show Solution
+                        </button>
+                        
+                        <div id="solution-problem2" class="collapse">
+                            <ol class="list-group list-group-numbered">
+                                <li class="list-group-item">
+                                    <span class="step-number">1</span>
+                                    <strong>Calculate original sum:</strong>
+                                    <div class="mt-2">
+                                        Original sum = Mean × Number of observations<br>
+                                        Original sum = 38 × 40 = 1520
+                                    </div>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">2</span>
+                                    <strong>Calculate correct sum:</strong>
+                                    <div class="mt-2">
+                                        Correct sum = Original sum - Incorrect value + Correct value<br>
+                                        Correct sum = 1520 - 36 + 56 = 1540
+                                    </div>
+                                </li>
+                                
+                                <li class="list-group-item">
+                                    <span class="step-number">3</span>
+                                    <strong>Calculate correct mean:</strong>
+                                    <div class="mt-2">
+                                        Correct mean = Correct sum / Number of observations<br>
+                                        Correct mean = 1540 / 40 = 38.5
+                                    </div>
+                                </li>
+                            </ol>
+                            
+                            <div class="answer-highlight">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <strong>Answer: Correct mean = 38.5</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem 3: Normal Distribution -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#problem3">
+                            <i class="fas fa-chart-line me-2 text-warning"></i>
+                            Problem 3: Normal Distribution (μ=30, σ=4)
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="problem3" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Question:</strong> X is a normally distributed variable with mean μ = 30 and standard deviation σ = 4. Find:
+                            <ul class="mt-2">
+                                <li>a) P(x < 40)</li>
+                                <li>b) P(x > 21)</li>
+                                <li>c) P(30 < x < 35)</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="calculate-btn mb-3" onclick="solveNormalDist1()">Calculate Solution</button>
+                        <div id="normalDist1Solution"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem 4: Car Speeds -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#problem4">
+                            <i class="fas fa-car me-2 text-info"></i>
+                            Problem 4: Car Speeds on Motorway
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="problem4" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Question:</strong> A radar unit is used to measure speeds of cars on a motorway. The speeds are normally distributed with a mean of 90 km/hr and a standard deviation of 10 km/hr. What is the probability that a car picked at random is travelling at more than 100 km/hr?
+                        </div>
+                        
+                        <button class="calculate-btn mb-3" onclick="solveCarSpeeds()">Calculate Solution</button>
+                        <div id="carSpeedsSolution"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem 5: Battery Life -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#problem5">
+                            <i class="fas fa-battery-half me-2 text-success"></i>
+                            Problem 5: Computer Battery Life
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="problem5" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Question:</strong> For a certain type of computers, the length of time between charges of the battery is normally distributed with a mean of 50 hours and a standard deviation of 15 hours. John owns one of these computers and wants to know the probability that the length of time will be between 50 and 70 hours.
+                        </div>
+                        
+                        <button class="calculate-btn mb-3" onclick="solveBatteryLife()">Calculate Solution</button>
+                        <div id="batteryLifeSolution"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem 6: Component Length -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#problem6">
+                            <i class="fas fa-ruler me-2 text-secondary"></i>
+                            Problem 6: Component Length Distribution
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="problem6" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Question:</strong> The length of similar components produced by a company are approximated by a normal distribution model with a mean of 5 cm and a standard deviation of 0.02 cm. If a component is chosen at random:
+                            <ul class="mt-2">
+                                <li>a) What is the probability that the length of this component is between 4.98 and 5.02 cm?</li>
+                                <li>b) What is the probability that the length of this component is between 4.96 and 5.04 cm?</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="calculate-btn mb-3" onclick="solveComponentLength()">Calculate Solution</button>
+                        <div id="componentLengthSolution"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem 7: Car Assembly Time -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#problem7">
+                            <i class="fas fa-clock me-2 text-dark"></i>
+                            Problem 7: Car Assembly Time
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="problem7" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Question:</strong> The time taken to assemble a car in a certain plant is a random variable having a normal distribution of 20 hours and a standard deviation of 2 hours. What is the probability that a car can be assembled at this plant in a period of time:
+                            <ul class="mt-2">
+                                <li>a) less than 19.5 hours?</li>
+                                <li>b) between 20 and 22 hours?</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="calculate-btn mb-3" onclick="solveAssemblyTime()">Calculate Solution</button>
+                        <div id="assemblyTimeSolution"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem 8: Employee Salaries -->
+            <div class="card question-card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-decoration-none w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#problem8">
+                            <i class="fas fa-dollar-sign me-2 text-success"></i>
+                            Problem 8: Employee Salaries Distribution
+                            <i class="fas fa-chevron-down float-end mt-1"></i>
+                        </button>
+                    </h5>
+                </div>
+                <div id="problem8" class="collapse">
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>Question:</strong> The annual salaries of employees in a large company are approximately normally distributed with a mean of $50,000 and a standard deviation of $20,000.
+                            <ul class="mt-2">
+                                <li>a) What percent of people earn less than $40,000?</li>
+                                <li>b) What percent of people earn between $45,000 and $65,000?</li>
+                                <li>c) What percent of people earn more than $70,000?</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="calculate-btn mb-3" onclick="solveSalaries()">Calculate Solution</button>
+                        <div id="salariesSolution"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="main.js"></script>
+</body>
+</html>
